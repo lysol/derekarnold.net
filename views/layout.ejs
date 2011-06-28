@@ -52,14 +52,17 @@
               color: #587aa9;
             }
 
-
-            #list_cont {
-              padding: 5em; 
-              margin-top: 1em;
-              padding-top: 1em;
-              border-top: 1px solid #ECECEC;
+            #content {
+              padding: 5em;
+              margin-top: 0.5em;
+              padding-top: 0.5em;
               padding-bottom: 1em;
               margin-bottom: 1em;
+            }
+
+            #list_cont {
+              padding: 0;
+              margin: 0; 
             }
 
             .bullet li {
@@ -94,7 +97,23 @@
             }
 
             footer { padding-bottom: 3em; }
+            nav {
+              border-bottom: 1px solid #ECECEC;
+              padding-bottom: 1em;
+            }
 
+            h2 {
+              font-size: 1.3em;
+            }
+            
+            .resume-section {
+              margin-bottom: 3em;
+              padding-left: 2em;
+            } 
+
+            .resume-section h2 {
+              margin-left: -1em;
+            }
         </style>
      
     </head>
@@ -114,7 +133,9 @@
          } %>
         </ul>
       </nav> 
+      <div id="content">
       <%- body %>
+      </div>
       <footer>
           &copy; 2011
           <script type="text/javascript">

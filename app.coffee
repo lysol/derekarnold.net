@@ -18,7 +18,7 @@ class Nav
 
 navs = []
 navs.push new Nav '', 'Home'
-navs.push new Nav 'résumé', 'Résumé'
+navs.push new Nav 'resume', 'Résumé'
 
 # App Routes
 
@@ -27,7 +27,7 @@ app.get '/', (request, response) ->
     "navs": navs
     current_nav: navs[0]
 
-app.get '/résumé', (request, response) ->
+app.get '/resume', (request, response) ->
   response.render 'resume',
     "navs": navs
     current_nav: navs[1]
