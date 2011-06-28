@@ -1,55 +1,136 @@
 <!DOCTYPE html>
   <html>
     <head>
-      <title>Express Coffee with ejs</title>
+      <title>Derek Arnold</title>
       <meta charset="utf-8" />
-      <link rel="icon" href="/favicon.png" />
-      <link rel="stylesheet" href="/app.css" />
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-      <script src="/app.js"></script>
-      <script>
-        ;(function () {
-          return $(document).ready(function() {
-            return alert('hi!');
-          });
-         })();
-      </script>
-      <style>
-      
-      header, nav, section, article, aside, footer {
-        display: block
-      }
-      nav li {
-        display: inline;
-        margin:10px
-      }
-      nav.sub {
-        float: right
-      }
-      #content {
-        margin-left: 120px
-      }
-      </style>
+        <meta name="description" content="Derek Arnold, a person from Iowa." />
+        <meta name="keywords" content="derek arnold,derek,arnold,douglbutt,lysol,iowa,mason city,north iowa,pymblr,congress" />
+        <meta name="google-site-verification" content="r_BkAkM4qxgWUrrvcS2981DR6W14Eeja59efnHNBRJ8" />
+        <meta name=”ROBOTS” content=”NOODP”>
+        <script type="text/javascript">
+        lloogg_clientid = "21210200db197786";
+        </script>
+        <script type="text/javascript" src="http://lloogg.com/l.js?c=21210200db197786">
+        </script>
+        <link rel="icon" href="/favicon.png" />
+        <style type="text/css">
+            @font-face {
+                font-family: 'Grandesign Neue Serif';
+                src: url('fonts/Grandesign Neue Serif.ttf');
+            }
+
+            @font-face {
+                font-family: 'Grandesign Neue Serif';
+                font-weight: bold;
+                src: url('fonts/Grandesign Neue Serif Bold.ttf');
+            }
+
+            @font-face {
+                font-family: 'Grandesign Neue Serif';
+                font-style: italic;
+                src: url('fonts/Grandesign Neue Serif Italic.ttf');
+            }
+
+            @font-face {
+                font-family: 'Grandesign Neue Serif';
+                font-weight: bold;
+                font-style: italic;
+                src: url('fonts/Grandesign Neue Serif Bold Italic.ttf');
+            }
+
+            body {
+              padding: 0;
+              margin 0;
+              font-size: 18px;
+              font-family: 'Grandesign Neue Serif','Garamond','Times','Times New Roman', serif;
+              color: #000025;
+              -webkit-font-smoothing: antialiased;
+
+            }
+
+            a,a:hover,a:active,a:visited {
+              color: #587aa9;
+            }
+
+
+            #list_cont {
+              padding: 5em; 
+              margin-top: 1em;
+              padding-top: 1em;
+              border-top: 1px solid #ECECEC;
+              padding-bottom: 1em;
+              margin-bottom: 1em;
+            }
+
+            .bullet li {
+              background-repeat: no-repeat;
+              background-position: 0px 1px;
+            }
+
+            #main {
+                margin: 0;
+              padding: 5em;
+              padding-top: 2em;
+              padding-bottom: 0;
+            }
+            header { 
+              padding-top: 1em;
+            }
+            header, footer, nav {
+              display: block;
+              padding-left: 5em;
+            }
+            nav ul {
+              display: inline;
+              list-style: none;
+              padding-left: 0;
+              font-weight: bold;
+              color: #565686;
+            }
+
+            nav li {
+              display: inline;
+              padding-right: 0.5em;
+            }
+
+            footer { padding-bottom: 3em; }
+
+        </style>
+     
     </head>
     
     <body>
-      <header>
-        <a href="/" title="Home">Home</a>
-        <nav>
-          <ul>
-            <li><a href="/about" title="About">About</a></li>
-            <li><a href="/pricing" title="Pricing">Pricing</a></li>
-            <li><a href="/contact" title="Contact">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
-      <div id="content">
+      <header><h1>Derek Arnold</h1></header>
+      <nav>
+        <ul>
+      <% var i;
+         for (i=0; i<navs.length; i++) {
+           if (current_nav.token != navs[i].token) {
+      %>
+          <li><a href="/<%= navs[i].token %>"><%= navs[i].name %></a></li>
+      <%   } else { %>
+          <li><b><%= navs[i].name %></b></li>
+      <%   }
+         } %>
+        </ul>
+      </nav> 
       <%- body %>
-      </div>
       <footer>
-        <p>
-          <a href="/privacy">Privacy Policy</a>
-        </p>
+          &copy; 2011
+          <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-658194-15']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+               var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+               ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+               var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+          </script>
+
       </footer>
     </body>
   </html>
