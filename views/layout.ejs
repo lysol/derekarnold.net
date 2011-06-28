@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Express Coffee with ejs</title>
+      <meta charset="utf-8" />
+      <link rel="icon" href="/favicon.png" />
+      <link rel="stylesheet" href="/app.css" />
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+      <script src="/app.js"></script>
+      <script>
+        ;(function () {
+          return $(document).ready(function() {
+            return alert('hi!');
+          });
+         })();
+      </script>
+      <style>
+      
+      header, nav, section, article, aside, footer {
+        display: block
+      }
+      nav li {
+        display: inline;
+        margin:10px
+      }
+      nav.sub {
+        float: right
+      }
+      #content {
+        margin-left: 120px
+      }
+      </style>
+    </head>
+    
+    <body>
+      <header>
+        <a href="/" title="Home">Home</a>
+        <nav>
+          <ul>
+            <li><a href="/about" title="About">About</a></li>
+            <li><a href="/pricing" title="Pricing">Pricing</a></li>
+            <li><a href="/contact" title="Contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      <div id="content">
+      <%- body %>
+      </div>
+      <footer>
+        <p>
+          <a href="/privacy">Privacy Policy</a>
+        </p>
+      </footer>
+    </body>
+  </html>
