@@ -31,14 +31,34 @@ app.get '/', (request, response) ->
   response.render 'index',
     "navs": navs
     current_nav: navs[0]
+    title_bar: 'Derek Arnold'
 
 app.get '/resume', (request, response) ->
   response.render 'resume',
     "navs": navs
     current_nav: navs[1]
+    title_bar: 'Derek Arnold - Résumé'
 
-app.get /^\/blog\/?.*/, (request, response) ->
-  blog.render(request, response)
+app.get '/blog/post/:token', (request, response) ->
+  post = blog.get_post req.params.token
+  response.render 'blog_post',
+    "post": post
+    current_nav: navs[2]
+    title_bar: "Derek Arnold - Blog - #{post.title}"
+
+app.get '/blog/page/:page', (request, response) ->
+  posts = blog.get_posts req.params.page
+  response.render 'blog',
+    "posts": posts
+    current_nav: navs[2]
+    title_bar: "Derek Arnold - Blog - Page #{req.params.page}"
+
+app.get '/blog', (request, response) ->
+  posts = blog.get_posts()
+  response.render 'blog',
+    "posts": posts
+    current_nav: navs[2]
+    title_bar: 'Derek Arnold - Blog'
 
 # Listen
 app.listen 3000
