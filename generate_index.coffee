@@ -1,4 +1,4 @@
 blog = require './blog'
 
-blog.generate_index (res) ->
-  console.log 'Done' 
+blog.build_cache (res) ->
+  console.log 'done'

@@ -40,25 +40,30 @@ app.get '/resume', (request, response) ->
     title_bar: 'Derek Arnold - Résumé'
 
 app.get '/blog/post/:token', (request, response) ->
-  post = blog.get_post req.params.token
-  response.render 'blog_post',
-    "post": post
-    current_nav: navs[2]
-    title_bar: "Derek Arnold - Blog - #{post.title}"
+  blog.get_post req.params.token, (post) ->
+    blog.attach_body post, (newpost) ->
+      response.render 'blog_post',
+        "post": newpost
+        current_nav: navs[2]
+        title_bar: "Derek Arnold - Blog - #{post.title}"
 
 app.get '/blog/page/:page', (request, response) ->
-  posts = blog.get_posts req.params.page
-  response.render 'blog',
-    "posts": posts
-    current_nav: navs[2]
-    title_bar: "Derek Arnold - Blog - Page #{req.params.page}"
+  resCb = (posts) ->
+    blog.attach_bodies posts, (newposts) ->
+      response.render 'blog',
+        "posts": newposts
+        current_nav: navs[2]
+        title_bar: "Derek Arnold - Blog - Page #{req.params.page}"
+  blog.get_posts resCb, req.params.page
 
 app.get '/blog', (request, response) ->
-  posts = blog.get_posts()
-  response.render 'blog',
-    "posts": posts
-    current_nav: navs[2]
-    title_bar: 'Derek Arnold - Blog'
+  blog.get_posts (posts) ->
+    blog.attach_bodies posts, (newposts) ->
+      response.render 'blog',
+        "navs": navs
+        "posts": newposts
+        current_nav: navs[2]
+        title_bar: 'Derek Arnold - Blog'
 
 # Listen
 app.listen 3000

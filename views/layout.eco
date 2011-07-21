@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title><% if @title_bar: %><%- @title_bar %><% end %></title>
+      <meta charset="utf-8" />
+        <meta name="description" content="Derek Arnold, a person from Iowa." />
+        <meta name="keywords" content="derek arnold,derek,arnold,douglbutt,lysol,iowa,mason city,north iowa,pymblr,congress" />
+        <meta name="google-site-verification" content="r_BkAkM4qxgWUrrvcS2981DR6W14Eeja59efnHNBRJ8" />
+        <meta name=”ROBOTS” content=”NOODP”>
+        <script type="text/javascript">
+        lloogg_clientid = "21210200db197786";
+        </script>
+        <script type="text/javascript" src="http://lloogg.com/l.js?c=21210200db197786">
+        </script>
+        <link rel="icon" href="/favicon.png" />
+				<link href='http://fonts.googleapis.com/css?family=Cabin&v1' rel='stylesheet' type='text/css'>
+ 
+				<style type="text/css">
+
+            @font-face {
+                font-family: 'Grandesign Neue Serif';
+                src: url('fonts/Grandesign Neue Serif.ttf');
+            }
+
+            @font-face {
+                font-family: 'Grandesign Neue Serif';
+                font-weight: bold;
+                src: url('fonts/Grandesign Neue Serif Bold.ttf');
+            }
+
+            @font-face {
+                font-family: 'Grandesign Neue Serif';
+                font-style: italic;
+                src: url('fonts/Grandesign Neue Serif Italic.ttf');
+            }
+
+            @font-face {
+                font-family: 'Grandesign Neue Serif';
+                font-weight: bold;
+                font-style: italic;
+                src: url('fonts/Grandesign Neue Serif Bold Italic.ttf');
+            }
+
+						.resume-section p {
+              margin-bottom: 1.2em;
+            }
+
+            body {
+              padding: 0;
+              margin: 0;
+              line-height: 1.4em;
+              text-rendering: optimizeLegibility;
+              font-size: 14pt;
+              font-family: 'Cabin','Garamond','Georgia','Times','Times New Roman', serif;
+              color: #000025;
+              -webkit-font-smoothing: antialiased;
+							-moz-font-smoothing: antialiased;
+
+
+            }
+
+            a,a:hover,a:active,a:visited {
+              color: #587aa9;
+            }
+
+            #content {
+              padding: 5em;
+              margin-top: 0em;
+              padding-top: 1em;
+              padding-bottom: 1em;
+              margin-bottom: 1em;
+							background-image: -webkit-gradient(
+									linear,
+									left top,
+									left 250,
+									color-stop(0.03, rgb(240,240,240)),
+									color-stop(0.52, rgb(255,255,255))
+							);
+							background-image: -moz-linear-gradient(
+									center top,
+									rgb(240,240,240) 3%,
+									rgb(255,255,255) 52%
+							);
+
+
+            }
+
+            #list_cont {
+              padding: 0;
+              margin: 0; 
+            }
+
+            .bullet li {
+              background-repeat: no-repeat;
+              background-position: 0px 1px;
+            }
+
+            #main {
+                margin: 0;
+              padding: 5em;
+              padding-top: 2em;
+              padding-bottom: 0;
+            }
+            #header { 
+              padding-top: 1em;
+            }
+            #header, #footer, #nav {
+              display: block;
+              padding-left: 5em;
+							margin: 0;
+            }
+            #nav ul {
+              display: inline;
+              list-style: none;
+              padding-left: 0;
+              font-weight: bold;
+              color: #565686;
+            }
+
+            #nav li {
+              display: inline;
+              padding-right: 0.5em;
+            }
+
+            #footer {
+						  padding-bottom: 3em;
+						}
+            #nav {
+              border-bottom: 1px dotted #ACACAC;
+              padding-bottom: 1em;
+            }
+
+						h1 {
+						  font-size: 2em;
+					  }
+
+            h2 {
+              font-size: 1.4em;
+            }
+            
+            .resume-section {
+              margin-bottom: 3em;
+              padding-left: 2em;
+            } 
+
+            .resume-section h2 {
+              margin-left: -1em;
+            }
+
+            .resume-section ul {
+              margin-bottom: 2.6em;
+            }
+        </style>
+     
+    </head>
+    
+    <body>
+      <div id="header"><h1>Derek Arnold</h1></div>
+      <div id="nav">
+        <ul>
+      <% for nav in @navs: %>
+        <% if @current_nav.token != nav.token: %>
+          <li><a href="/<%= nav.token %>"><%= nav.name %></a></li>
+        <% else: %>
+          <li><b><%= nav.name %></b></li>
+        <% end %>
+      <% end %>
+        </ul>
+      </div> 
+      <div id="content">
+      <%- @body %>
+      </div>
+      <div id="footer">
+          &copy; 2011
+          <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-658194-15']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+               var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+               ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+               var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+          </script>
+
+      </div>
+    </body>
+  </html>
