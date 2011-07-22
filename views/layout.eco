@@ -12,34 +12,10 @@
         </script>
         <script type="text/javascript" src="http://lloogg.com/l.js?c=21210200db197786">
         </script>
-        <link rel="icon" href="/favicon.png" />
-				<link href='http://fonts.googleapis.com/css?family=Cabin&v1' rel='stylesheet' type='text/css'>
- 
+        <link rel="icon" href="/public/favicon.png" />
+				<!--<link href='http://fonts.googleapis.com/css?family=Cabin&v1' rel='stylesheet' type='text/css'>-->
+        <link href="http://fonts.googleapis.com/css?family=Lato|Open Sans|Anonymous Pro&v2" rel="stylesheet" type="text/css">
 				<style type="text/css">
-
-            @font-face {
-                font-family: 'Grandesign Neue Serif';
-                src: url('fonts/Grandesign Neue Serif.ttf');
-            }
-
-            @font-face {
-                font-family: 'Grandesign Neue Serif';
-                font-weight: bold;
-                src: url('fonts/Grandesign Neue Serif Bold.ttf');
-            }
-
-            @font-face {
-                font-family: 'Grandesign Neue Serif';
-                font-style: italic;
-                src: url('fonts/Grandesign Neue Serif Italic.ttf');
-            }
-
-            @font-face {
-                font-family: 'Grandesign Neue Serif';
-                font-weight: bold;
-                font-style: italic;
-                src: url('fonts/Grandesign Neue Serif Bold Italic.ttf');
-            }
 
 						.resume-section p {
               margin-bottom: 1.2em;
@@ -49,18 +25,16 @@
               padding: 0;
               margin: 0;
               line-height: 1.4em;
-              text-rendering: optimizeLegibility;
-              font-size: 14pt;
-              font-family: 'Cabin','Garamond','Georgia','Times','Times New Roman', serif;
+              font-size: 13pt;
               color: #000025;
               -webkit-font-smoothing: antialiased;
 							-moz-font-smoothing: antialiased;
-
-
+              font-family: 'Open Sans', sans-serif;
+              position: relative;
             }
 
             a,a:hover,a:active,a:visited {
-              color: #587aa9;
+              color: #000060;
             }
 
             #content {
@@ -103,8 +77,20 @@
             }
             #header { 
               padding-top: 1em;
+              padding-bottom: 1em;
+              position: relative;
+              background-color: #000000;
+              -webkit-mask-image: -webkit-radial-gradient(
+									circle,
+							    rgba(0,0,0,1.0),
+                  rgba(248,248,248,0.95)
+              );
+
             }
-            #header, #footer, #nav {
+
+
+
+            #header, #nav {
               display: block;
               padding-left: 5em;
 							margin: 0;
@@ -114,7 +100,7 @@
               list-style: none;
               padding-left: 0;
               font-weight: bold;
-              color: #565686;
+              color: #FFFFFF;
             }
 
             #nav li {
@@ -122,20 +108,27 @@
               padding-right: 0.5em;
             }
 
-            #footer {
-						  padding-bottom: 3em;
-						}
+            #nav a {
+              text-decoration: none;
+            }
+
             #nav {
-              border-bottom: 1px dotted #ACACAC;
-              padding-bottom: 1em;
+              display: inline;
+              position: absolute;
+              top: 1.3em;
+              right: 2em;
             }
 
 						h1 {
-						  font-size: 2em;
-					  }
+						  font-size: 1.8em;
+              font-family: 'Lato', sans-serif;
+					    text-style: normal;
+            }
 
             h2 {
               font-size: 1.4em;
+              font-family: 'Lato', sans-serif;
+              text-style: normal;
             }
             
             .resume-section {
@@ -150,28 +143,118 @@
             .resume-section ul {
               margin-bottom: 2.6em;
             }
+
+            .blog_post {
+              margin-bottom: 3.5em;
+            }
+
+            .blog_post p {
+              padding-left: 0.15em;
+              }
+
+            .blog_post h1 {
+              margin-bottom: 1em;
+            }
+
+            .blog_post h1 a {
+              text-decoration: none;
+              color: #000000;
+              -webkit-mask-image: -webkit-radial-gradient(
+									circle,
+							    rgba(0,0,0,1.0),
+                  rgba(248,248,248,0.95)
+              );
+            }
+
+            .blog_post pre {
+              margin-left: 2em;
+              font-family: 'Anonymous Pro', monospace;
+              font-size: 10pt;
+              background-color: rgba(0,0,0,.1);
+              overflow-x: auto;
+              overflow-y: hidden;
+              padding: 1.2em;
+              width: auto;
+              -webkit-border-radius: .25em;
+              -moz-border-radius: .25em;
+              border-radius: .25em;
+              }
+
+            .blog_footer {
+              font-size: 90%;
+              color: #747474;
+              padding-left: 0.15em;
+            }
+
+            #header h1 {
+              display: inline;
+              color: #FFFFFF;
+              -webkit-mask-image: -webkit-radial-gradient(
+									circle,
+                  rgba(248,248,248,1.0),
+							    rgba(0,0,0,0.93)
+              );
+              font-size: 2em;
+            }
+
+            #header a, #header a:visited, #header a:hover,
+            #header a:active {
+              font-family: 'Lato', sans-serif;
+              color: #AAAAAA;
+            }
+
+            #pagination {
+              position: relative;
+              margin-top: 0;
+              font-family: 'Lato', sans-serif;
+              padding-bottom: 1em;
+              font-weight: bold;
+            }
+
+            #pagination a {
+              text-decoration: none;
+              color: #000000;
+              -webkit-mask-image: -webkit-radial-gradient(
+									circle,
+							    rgba(0,0,0,1.0),
+                  rgba(248,248,248,0.85)
+              );
+            }
+
+            #prev {
+              position: absolute;
+              left: 0;
+            }
+
+            #next {
+              position: absolute;
+              right: 0;
+            }
         </style>
      
     </head>
     
     <body>
-      <div id="header"><h1>Derek Arnold</h1></div>
-      <div id="nav">
-        <ul>
-      <% for nav in @navs: %>
-        <% if @current_nav.token != nav.token: %>
-          <li><a href="/<%= nav.token %>"><%= nav.name %></a></li>
-        <% else: %>
-          <li><b><%= nav.name %></b></li>
-        <% end %>
-      <% end %>
-        </ul>
+      <div id="header"><h1>Derek Arnold</h1>
+          <div id="nav">
+            <ul>
+          <% for nav in @navs: %>
+            <% if @current_nav.token != nav.token: %>
+              <li><a href="/<%= nav.token %>"><%= nav.name %></a></li>
+            <% else: %>
+              <% if @current_nav.name == 'Blog' and @page > 1: %>
+                  <li><b><%= nav.name %> &middot; Page <%- @page %></b></li>
+              <% else: %>
+                  <li><b><%= nav.name %></b></li>
+              <% end %>
+            <% end %>
+          <% end %>
+            </ul>
+            </div>
       </div> 
       <div id="content">
       <%- @body %>
       </div>
-      <div id="footer">
-          &copy; 2011
           <script type="text/javascript">
 
             var _gaq = _gaq || [];
@@ -186,6 +269,5 @@
 
           </script>
 
-      </div>
     </body>
   </html>

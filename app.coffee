@@ -40,30 +40,43 @@ app.get '/resume', (request, response) ->
     title_bar: 'Derek Arnold - Résumé'
 
 app.get '/blog/post/:token', (request, response) ->
-  blog.get_post req.params.token, (post) ->
+  blog.get_post request.params.token, (post) ->
     blog.attach_body post, (newpost) ->
       response.render 'blog_post',
+        "navs": navs
         "post": newpost
         current_nav: navs[2]
         title_bar: "Derek Arnold - Blog - #{post.title}"
 
 app.get '/blog/page/:page', (request, response) ->
+  pageNum = parseInt request.params.page
   resCb = (posts) ->
     blog.attach_bodies posts, (newposts) ->
-      response.render 'blog',
-        "posts": newposts
-        current_nav: navs[2]
-        title_bar: "Derek Arnold - Blog - Page #{req.params.page}"
-  blog.get_posts resCb, req.params.page
+      resCb2 = (nextprev) ->
+        response.render 'blog',
+          "navs": navs
+          "posts": newposts
+          show_next: nextprev[0]
+          show_prev: nextprev[1]
+          current_nav: navs[2]
+          page: parseInt request.params.page
+          title_bar: "Derek Arnold - Blog - Page #{pageNum}"
+      blog.paginates resCb2, pageNum
+  blog.get_posts resCb, pageNum
 
 app.get '/blog', (request, response) ->
   blog.get_posts (posts) ->
     blog.attach_bodies posts, (newposts) ->
-      response.render 'blog',
-        "navs": navs
-        "posts": newposts
-        current_nav: navs[2]
-        title_bar: 'Derek Arnold - Blog'
+      blog.paginates (nextprev) ->
+        console.log nextprev
+        response.render 'blog',
+          show_next: nextprev[0]
+          show_prev: nextprev[1]
+          "navs": navs
+          "posts": newposts
+          page: 1
+          current_nav: navs[2]
+          title_bar: 'Derek Arnold - Blog'
 
 # Listen
 app.listen 3000

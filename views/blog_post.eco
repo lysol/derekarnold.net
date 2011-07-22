@@ -1,0 +1,20 @@
+<div class="blog_post">
+<h1><a href="/blog/post/<%= @post.token() %>"><%= @post.title %></a></h1>
+<p>
+  <%- @post.body %>
+</p>
+    <div class="blog_footer">
+    Posted on <a href="/blog/post/<%= @post.token() %>"><%= @post.niceDate() %></a>
+    <% if @post.tags? and @post.tags.length > 0: %>
+      &middot;
+      Tags: 
+        <% for tag in @post.tags: %>
+        <a href="/blog/tags/<%- tag %>"><%= tag %></a>
+        <% end %>
+    <% end %>
+    </div>
+</div>
+
+<div id="pagination">
+<a href="/blog">&laquo; Back to the blog</a>
+</div>
