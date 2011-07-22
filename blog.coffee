@@ -40,6 +40,7 @@ class Article
       if data?
         callback data
 
+
 exports.attach_body = (post, callback) ->
   post.cached (data) ->
     post.body = data
@@ -62,17 +63,22 @@ settings =
   "cache": './cache'
 exports.settings = settings
 
-load_index = (callback) ->
+load_index = (callback, tag) ->
   fs.readFile settings['article index'], 'utf8', (err, data) ->
     if err?
       exports.generate_index (res) ->
         if res
           load_index callback
     else
-      callback JSON.parse line for line in data.toString().split "\n"
+      posts = JSON.parse line for line in data.toString().split "\n"
+      hasTag = (item) ->
+        item.tags? and tag in item.tags
+      if tag?
+        posts = posts.filter hasTag
+      callback posts
 
-exports.paginates = (callback, pagenum=1) ->
-  load_index (posts) ->
+exports.paginates = (callback, pagenum=1, tag) ->
+  liCb = (posts) ->
     next = false
     prev = false
     pp = settings['posts per page']
@@ -81,19 +87,21 @@ exports.paginates = (callback, pagenum=1) ->
     if pagenum > 1
       prev = true
     callback [next, prev]
+  load_index liCb, tag
 
-exports.get_posts = (callback, pagenum=1) ->
+exports.get_posts = (callback, pagenum=1, tag) ->
   pp = settings["posts per page"]
-  load_index (index) ->
+  liCb = (index) ->
     if pagenum != -1
       index = index[pp*(pagenum-1)..pp*(pagenum)-1]
     articles = []
     for art in index
       if art.filename? and art.title? and art.post_date?
-        if not art.tags?
+        if art.tags == null
           art.tags = []
         articles.push new Article art.filename, art.title, art.post_date, art.tags
     callback articles
+  load_index liCb, tag
 
 exports.get_post = (token, callback) ->
   load_index (index) ->
@@ -119,22 +127,32 @@ is_article = (path, callback) ->
     callback stats.isFile() and md_pattern.test path
 
 exports.build_cache = (callback) ->
-  exports.generate_index (result) ->
-    exports.get_posts (posts) ->
-      wIter = (item, cb) ->
-        htmlFilename = item.filename.split '.'
-        htmlFilename = htmlFilename[0..htmlFilename.length - 2].join '.'
-        htmlFilename = htmlFilename + '.html'
-        item.render (data) ->
-          cacheFile = "#{settings['cache']}/#{htmlFilename}"
-          fs.writeFile cacheFile, data, 'utf8', (err) ->
-            if err?
-              throw err
-            cb()
-      async.forEach posts, wIter, (err) ->
-        if err?
-          throw err
-        callback true
+  iter = (item, cb) ->
+    np = "#{settings['cache']}/#{item}"
+    if (fs.statSync np).isFile
+      fs.unlinkSync np
+    cb()
+  currentCache = fs.readdirSync settings['cache']
+  async.forEach currentCache, iter, (err) ->
+    if err?
+      console.log "Error while removing previous cache."
+      throw err
+    exports.generate_index (result) ->
+      exports.get_posts (posts) ->
+        wIter = (item, cb) ->
+          htmlFilename = item.filename.split '.'
+          htmlFilename = htmlFilename[0..htmlFilename.length - 2].join '.'
+          htmlFilename = htmlFilename + '.html'
+          item.render (data) ->
+            cacheFile = "#{settings['cache']}/#{htmlFilename}"
+            fs.writeFile cacheFile, data, 'utf8', (err) ->
+              if err?
+                throw err
+              cb()
+        async.forEach posts, wIter, (err) ->
+          if err?
+            throw err
+          callback true
 
 exports.generate_index = (callback) ->
   try
@@ -149,12 +167,12 @@ exports.generate_index = (callback) ->
     cb()
   particles = fs.readdirSync settings['article path']
   async.forEach particles, iter, (err) ->
-    if err
+    if err?
       console.log "Error while parsing article sources:"
       throw err
     iter2 = (item, cb) ->
       fs.readFile "#{settings['article path']}/#{item}", 'utf8', (err, data) ->
-        if err
+        if err?
           console.log "Error while reading article source."
           throw err
         splot = data.split "\n\n"
@@ -162,10 +180,10 @@ exports.generate_index = (callback) ->
         headertext = splot[0]
         headertext.replace "\n", ""
         header = JSON.parse headertext
-        artobjs.push new Article item, header.title, Date.parse header.post_date, header.tags
+        artobjs.push new Article item, header.title, (Date.parse header.post_date), header.tags
         cb()
     async.forEach articles, iter2, (err) ->
-      if err
+      if err?
         console.log "Error while building articles."
         throw err
       artsort = (a, b) ->
@@ -174,7 +192,7 @@ exports.generate_index = (callback) ->
       artobjs.reverse()
       indexjson = JSON.stringify artobjs
       fs.writeFile settings['article index'], indexjson, (err) ->
-        if err
+        if err?
           console.log "Error while building article index."
           throw err
         callback(true)

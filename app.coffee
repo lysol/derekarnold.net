@@ -21,16 +21,16 @@ class Nav
   constructor: (@token, @name) ->
 
 navs = []
-navs.push new Nav '', 'Home'
+navs.push new Nav '', 'Blog'
 navs.push new Nav 'resume', 'Résumé'
-navs.push new Nav 'blog', 'Blog'
+navs.push new Nav 'about', 'About'
 
 # App Routes
 
-app.get '/', (request, response) ->
+app.get '/about', (request, response) ->
   response.render 'index',
     "navs": navs
-    current_nav: navs[0]
+    current_nav: navs[2]
     title_bar: 'Derek Arnold'
 
 app.get '/resume', (request, response) ->
@@ -39,16 +39,16 @@ app.get '/resume', (request, response) ->
     current_nav: navs[1]
     title_bar: 'Derek Arnold - Résumé'
 
-app.get '/blog/post/:token', (request, response) ->
+app.get '/post/:token', (request, response) ->
   blog.get_post request.params.token, (post) ->
     blog.attach_body post, (newpost) ->
       response.render 'blog_post',
         "navs": navs
         "post": newpost
-        current_nav: navs[2]
+        current_nav: navs[0]
         title_bar: "Derek Arnold - Blog - #{post.title}"
 
-app.get '/blog/page/:page', (request, response) ->
+app.get '/page/:page', (request, response) ->
   pageNum = parseInt request.params.page
   resCb = (posts) ->
     blog.attach_bodies posts, (newposts) ->
@@ -58,25 +58,66 @@ app.get '/blog/page/:page', (request, response) ->
           "posts": newposts
           show_next: nextprev[0]
           show_prev: nextprev[1]
-          current_nav: navs[2]
+          current_nav: navs[0]
           page: parseInt request.params.page
+          basePath: "/"
           title_bar: "Derek Arnold - Blog - Page #{pageNum}"
       blog.paginates resCb2, pageNum
   blog.get_posts resCb, pageNum
 
-app.get '/blog', (request, response) ->
+app.get '/', (request, response) ->
   blog.get_posts (posts) ->
     blog.attach_bodies posts, (newposts) ->
       blog.paginates (nextprev) ->
-        console.log nextprev
         response.render 'blog',
           show_next: nextprev[0]
           show_prev: nextprev[1]
           "navs": navs
           "posts": newposts
           page: 1
-          current_nav: navs[2]
+          current_nav: navs[0]
+          basePath: "/"
           title_bar: 'Derek Arnold - Blog'
+
+
+app.get '/tags/:tag/:page', (request, response) ->
+  tag = request.params.tag
+  page = request.params.page
+  pCb = (posts) ->
+    blog.attach_bodies posts, (newposts) ->
+      pagCb = (nextprev) ->
+        response.render 'blog',
+          show_next: nextprev[0]
+          show_prev: nextprev[1]
+          "navs": navs
+          "posts": newposts
+          "page": page
+          current_nav: navs[0]
+          "tag": tag
+          basePath: "/tags/#{tag}/"
+          title_bar: "Derek Arnold - Blog - Tagged: #{tag} - Page #{page}"
+      blog.paginates pagCb, tag
+  blog.get_posts pCb, page, tag
+
+
+app.get '/tags/:tag', (request, response) ->
+  tag = request.params.tag
+  pCb = (posts) ->
+    blog.attach_bodies posts, (newposts) ->
+      pagCb = (nextprev) ->
+        response.render 'blog',
+          show_next: nextprev[0]
+          show_prev: nextprev[1]
+          "navs": navs
+          "posts": newposts
+          page: 1
+          "tag": tag
+          current_nav: navs[0]
+          title_bar: "Derek Arnold - Blog - Tagged: #{tag}"
+          basePath: "/tags/#{tag}/"
+      blog.paginates pagCb, tag
+  blog.get_posts pCb, 1, tag
+
 
 # Listen
 app.listen 3000

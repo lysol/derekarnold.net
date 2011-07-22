@@ -38,8 +38,9 @@
             }
 
             #content {
-              padding: 5em;
-              margin-top: 0em;
+              border-top: 0.08em solid #CCCCCC;
+              padding: 4.9em;
+              margin-top: 0.1em;
               padding-top: 1em;
               padding-bottom: 1em;
               margin-bottom: 1em;
