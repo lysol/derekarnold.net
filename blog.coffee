@@ -58,7 +58,7 @@ exports.attach_bodies = (posts, callback) ->
 settings =
   "article path": './articles'
   "article index": './article_index.json'
-  "posts per page": 3
+  "posts per page": 10
   "cache": './cache'
 exports.settings = settings
 
