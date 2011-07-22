@@ -204,6 +204,12 @@
               color: #AAAAAA;
             }
 
+            #header h1 a, #header h1 a:visited, #header ah1 a:hover,
+            #header h1 a:active {
+              text-decoration: none;
+              color: inherit;
+            }
+
             #pagination {
               position: relative;
               margin-top: 0;
@@ -231,12 +237,35 @@
               position: absolute;
               right: 0;
             }
+
+            #derek {
+              float: left;
+              padding: 0;
+              margin-right: 0.75em;
+              margin-bottom: 0em;
+              -webkit-border-radius: .25em;
+              -moz-border-radius: .25em;
+              border-radius: .25em;
+              background-image: url('/images/derek.jpg');
+              width: 11.265em;
+              height: 11.265em;
+              bg-size: 100% 100%;
+            }
+
+            .about {
+              margin-bottom: 1em;
+            }
+
+            #byline {
+              clear: both;
+            }
+
         </style>
      
     </head>
     
     <body>
-      <div id="header"><h1>Derek Arnold</h1>
+      <div id="header"><h1><a href="/">Derek Arnold</a></h1>
           <div id="nav">
             <ul>
           <% for nav in @navs: %>

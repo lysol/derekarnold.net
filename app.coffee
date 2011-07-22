@@ -28,7 +28,7 @@ navs.push new Nav 'about', 'About'
 # App Routes
 
 app.get '/about', (request, response) ->
-  response.render 'index',
+  response.render 'about',
     "navs": navs
     current_nav: navs[2]
     title_bar: 'Derek Arnold'
