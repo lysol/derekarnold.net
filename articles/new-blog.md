@@ -1,5 +1,5 @@
 {
-    "title": "New blog",
+    "title": "New site",
     "post_date": "2011-07-21 07:04 PM",
     "tags": ["meta","coffeescript","nodejs"]
 }

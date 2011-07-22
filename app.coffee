@@ -8,7 +8,7 @@ app.set 'views', __dirname + '/views'
 app.set 'view engine', 'eco'
 app.set 'view options', layout: 'layout'
 #app.register '.eco', eco
-blog.set 'article path', './articles'
+blog.set 'article path', __dirname + '/articles'
 app.use express.bodyParser()
 app.use express.methodOverride()
 app.use express.cookieParser()

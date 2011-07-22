@@ -57,10 +57,10 @@ exports.attach_bodies = (posts, callback) ->
     callback posts
 
 settings =
-  "article path": './articles'
-  "article index": './article_index.json'
+  "article path": __dirname + '/articles'
+  "article index": __dirname + '/article_index.json'
   "posts per page": 10
-  "cache": './cache'
+  "cache": __dirname + '/cache'
 exports.settings = settings
 
 load_index = (callback, tag) ->
