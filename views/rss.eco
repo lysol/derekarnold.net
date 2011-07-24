@@ -1,0 +1,43 @@
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/" version="2.0">
+<channel>
+  <title><%- @title %></title>
+  <atom:link href="<%- @publicPath %>/rss" rel="self"
+    type="application/rss+xml" />
+  <link><%- @publicPath %></link>
+  <description><%- @siteDescription %></description>
+  <lastBuildDate><%- @lastBuild %></lastBuildDate>
+  <language>en</language>
+  <sy:updatePeriod>hourly</sy:updatePeriod>
+  <sy:updateFrequency>1</sy:updateFrequency>
+  <generator>http://github.com/lysol/derekarnold.net</generator>
+  <% if @posts? and @posts.length > 0: %>
+  <% for article in @posts: %>
+    <item>
+    <title><%- article.title %></title>
+    <link><%- @publicPath %>/post/<%- article.token() %></link>
+    <pubDate><%- article.rssDate() %></pubDate>
+    <dc:creator><%- @creator %></dc:creator>
+    <% if article.tags? and article.tags.length > 0: %>
+    <% for tag in article.tags: %>
+      <category>
+        <![CDATA[ <%= tag %> ]]>
+      </category>
+    <% end %>
+    <% end %>
+    <description>
+      <![CDATA [<% if article.body? and article.body.length > 512: %>
+        <%- article.body[0..512] %>...
+      <% else: %>
+        <%- article.body %>
+      <% end %> ]]>
+    </description>
+    <content:encoded>
+      <![CDATA[
+        <%- article.body %>
+      ]]>
+    </content:encoded>
+    </item>
+  <% end %>
+  <% end %>
+</channel>
+</rss>
