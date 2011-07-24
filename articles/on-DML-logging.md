@@ -4,11 +4,12 @@
     "tags": ["postgres"]
 }
 
-A common desire for PostgreSQL users is to log UPDATE, INSERT and DELETE
-operations by users. Trigger functions immediately jump to mind, and they are
-rightfully suited to the task, but bring some baggage of their own that may
-give you some pause if your users or developers are sensitive to the speed of
-their database queries.
+If your shop is like ours, your devs working with PostgreSQL want to log
+UPDATE, INSERT and DELETE operations by users, as a tool to analyze bugs in
+your software or to audit user activities. Trigger functions immediately jump
+to mind, and they are rightfully suited to the task, but bring some baggage of
+their own that may give you some pause if your users or developers are
+sensitive to the speed of their database queries.
 
 First things first, PL/PGSQL is great. If you absolutely can't write your
 function in plain SQL, use PL/PGSQL if you can. PL/Python is fun, very
