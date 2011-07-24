@@ -3,4 +3,5 @@
     "useDisqus": true,
     "disqusShortname": "derek",
     "publicPath": "http://dev.derekarnold.net"
+    "serverPort": 3001
 }

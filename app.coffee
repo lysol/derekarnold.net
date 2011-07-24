@@ -131,6 +131,6 @@ start = (err, data) ->
     console.log "Error reading config.json."
     throw err
   config = JSON.parse data.replace "\n", ""
-  app.listen 3000
-  console.log "Listening on port 3000."
+  app.listen config.serverPort
+  console.log "Listening on port #{config.serverPort}."
 fs.readFile __dirname + '/config.json', 'utf8', start
