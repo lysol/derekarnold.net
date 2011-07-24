@@ -12,7 +12,7 @@ their database queries.
 
 First things first, PL/PGSQL is great. If you absolutely can't write your
 function in plain SQL, use PL/PGSQL if you can. PL/Python is fun, very
-powerful, and if you're like me, writing Python is like a Slip 'N Slid that
+powerful, and if you're like me, writing Python is like a Slip 'N Slide that
 never ends. But for trigger functions on what could be millions of queries, it
 may give you the gift of a significant performance penalty that will irritate
 you for around a year before it finally prompts you to complain about it in
