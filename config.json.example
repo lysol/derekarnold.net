@@ -2,6 +2,5 @@
     "siteName": "Derek Arnold",
     "useDisqus": true,
     "disqusShortname": "derek",
-    "publicPath": "http://dev.derekarnold.net",
-    "serverPort": 3001
+    "publicPath": "http://derekarnold.net",
 }
