@@ -35,12 +35,14 @@ app.get '/about', (request, response) ->
     "navs": navs
     current_nav: navs[2]
     title_bar: config.siteName
+    siteDescription: config.siteDescription
 
 app.get '/resume', (request, response) ->
   response.render 'resume',
     "navs": navs
     current_nav: navs[1]
     title_bar: "#{config.siteName} - Résumé"
+    siteDescription: config.siteDescription
 
 app.get '/post/:token', (request, response) ->
   blog.get_post request.params.token, (post) ->
@@ -53,6 +55,7 @@ app.get '/post/:token', (request, response) ->
         useDisqus: true
         disqusPermalink: "#{config.publicPath}/post/#{request.params.token}"
         disqusIdentifier: request.params.token
+        siteDescription: config.siteDescription
 
 app.get '/page/:page', (request, response) ->
   pageNum = parseInt request.params.page
@@ -68,6 +71,7 @@ app.get '/page/:page', (request, response) ->
           page: parseInt request.params.page
           basePath: "/"
           title_bar: "#{config.siteName} - Blog - Page #{pageNum}"
+          siteDescription: config.siteDescription
       blog.paginates resCb2, pageNum
   blog.get_posts resCb, pageNum
 
@@ -84,6 +88,7 @@ app.get '/', (request, response) ->
           current_nav: navs[0]
           basePath: "/"
           title_bar: "#{config.siteName} - Blog"
+          siteDescription: config.siteDescription
 
 
 app.get '/tags/:tag/:page', (request, response) ->
@@ -102,6 +107,7 @@ app.get '/tags/:tag/:page', (request, response) ->
           "tag": tag
           basePath: "/tags/#{tag}/"
           title_bar: "#{config.siteName} - Blog - Tagged: #{tag} - Page #{page}"
+          siteDescription: config.siteDescription
       blog.paginates pagCb, tag
   blog.get_posts pCb, page, tag
 
@@ -121,16 +127,33 @@ app.get '/tags/:tag', (request, response) ->
           current_nav: navs[0]
           title_bar: "#{config.siteName} - Blog - Tagged: #{tag}"
           basePath: "/tags/#{tag}/"
+          siteDescription: config.siteDescription
       blog.paginates pagCb, tag
   blog.get_posts pCb, 1, tag
 
+app.get '/rss', (request, response) ->
+  pCb = (posts) ->
+    blog.attach_bodies posts, (newposts) ->
+      response.render 'rss',
+        "posts": newposts
+        title: config.siteName
+        path: config.publicPath
+        siteDescription: config.siteDescription
+        lastBuild: Date.now()
+        layout: null
+        publicPath: config.publicPath
+        creator: config.author
+  blog.get_posts pCb, 1
 
 # Read config and listen
 start = (err, data) ->
   if err?
     console.log "Error reading config.json."
     throw err
-  config = JSON.parse data.replace "\n", ""
+  config = JSON.parse(data.replace "\n", "")
+  config.lastFeedUpdate = Date.now()
+  if not config.serverPort?
+    throw "No server port defined."
   app.listen config.serverPort
   console.log "Listening on port #{config.serverPort}."
 fs.readFile __dirname + '/config.json', 'utf8', start

@@ -3,4 +3,7 @@
     "useDisqus": true,
     "disqusShortname": "derek",
     "publicPath": "http://derekarnold.net",
+    "siteDescription": "Derek Arnold, a person from Iowa.",
+    "author": "Derek Arnold",
+    "serverPort": 3000
 }

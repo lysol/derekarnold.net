@@ -10,6 +10,8 @@ class Article
   niceDate: (format='MMMM dS, yyyy') ->
     (new Date @post_date).toString format
 
+  rssDate: ->  @niceDate 'ddd, dd MMM yyyy HH:mm:ss +0000'
+
   token: () ->
     v = @filename.split '.'
     v[0..v.length - 2].join '-'
