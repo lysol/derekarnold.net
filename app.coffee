@@ -135,6 +135,7 @@ app.get '/tags/:tag', (request, response) ->
 app.get '/rss', (request, response) ->
   pCb = (posts) ->
     blog.attach_bodies posts, (newposts) ->
+      response.contentType 'application/xml'
       response.render 'rss',
         "posts": newposts
         title: config.siteName
