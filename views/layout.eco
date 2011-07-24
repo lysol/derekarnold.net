@@ -24,11 +24,15 @@
               padding: 0;
               margin: 0;
               line-height: 1.4em;
-              font-size: 13pt;
+              font-size: 14px;
+              line-height: 21px;
               color: #000025;
               -webkit-font-smoothing: antialiased;
               -moz-font-smoothing: antialiased;
-              font-family: 'PT Serif', sans-serif;
+              font-family: 'PT Serif', Georgia, Times, Times New Roman, serif;
+              font-variant: normal;
+              font-weight: normal;
+              font-style: normal;
               position: relative;
             }
 
@@ -55,7 +59,6 @@
                   rgb(255,255,255) 52%
               );
               position: relative;
-              text-shadow: -1px -1px 2px #FAFAFA;
             }
 
             #list_cont {
