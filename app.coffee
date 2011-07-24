@@ -3,6 +3,7 @@ blog = require './blog'
 eco = require 'eco'
 app = module.exports = express.createServer()
 fs = require 'fs'
+datejs = require 'datejs'
 
 # Setup Template Engine
 app.set 'views', __dirname + '/views'
@@ -139,7 +140,6 @@ app.get '/rss', (request, response) ->
         title: config.siteName
         path: config.publicPath
         siteDescription: config.siteDescription
-        lastBuild: Date.now()
         layout: null
         publicPath: config.publicPath
         creator: config.author
@@ -151,7 +151,7 @@ start = (err, data) ->
     console.log "Error reading config.json."
     throw err
   config = JSON.parse(data.replace "\n", "")
-  config.lastFeedUpdate = Date.now()
+  config.lastFeedUpdate = Date(Date.now()).toString 'ddd, dd MMM yyyy HH:mm:ss +0000'
   if not config.serverPort?
     throw "No server port defined."
   app.listen config.serverPort
