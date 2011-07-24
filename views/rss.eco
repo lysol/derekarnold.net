@@ -14,7 +14,7 @@
     <item>
     <title><%- article.title %></title>
     <link><%- @publicPath %>/post/<%- article.token() %></link>
-    <guid isPermalink="true"><%- @publicPath %>/post/<%- article.token() %></guid>
+    <guid isPermaLink="true"><%- @publicPath %>/post/<%- article.token() %></guid>
     <pubDate><%- article.rssDate() %></pubDate>
     <dc:creator><%- @creator %></dc:creator>
     <% if article.tags? and article.tags.length > 0: %>
