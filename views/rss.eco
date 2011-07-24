@@ -19,16 +19,16 @@
     <% if article.tags? and article.tags.length > 0: %>
     <% for tag in article.tags: %>
       <category>
-        <![CDATA[ <%= tag %> ]]>
+        <![CDATA[<%= tag %>]]>
       </category>
     <% end %>
     <% end %>
     <description>
-      <![CDATA [<% if article.body? and article.body.length > 512: %>
+      <![CDATA[<% if article.body? and article.body.length > 512: %>
         <%- article.body[0..512] %>...
       <% else: %>
         <%- article.body %>
-      <% end %> ]]>
+      <% end %>]]>
     </description>
     <content:encoded>
       <![CDATA[
