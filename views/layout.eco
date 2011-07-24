@@ -24,7 +24,7 @@
               padding: 0;
               margin: 0;
               line-height: 1.4em;
-              font-size: 14px;
+              font-size: 18px;
               line-height: 21px;
               color: #000025;
               -webkit-font-smoothing: antialiased;
