@@ -14,7 +14,7 @@
         </script>
         <link rel="icon" href="/public/favicon.png" />
 				<!--<link href='http://fonts.googleapis.com/css?family=Cabin&v1' rel='stylesheet' type='text/css'>-->
-        <link href="http://fonts.googleapis.com/css?family=Lato|Open Sans|Anonymous Pro&v2" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Lato|PT Serif|Anonymous Pro&v2" rel="stylesheet" type="text/css">
 				<style type="text/css">
 
 						.resume-section p {
@@ -29,7 +29,7 @@
               color: #000025;
               -webkit-font-smoothing: antialiased;
 							-moz-font-smoothing: antialiased;
-              font-family: 'Open Sans', sans-serif;
+              font-family: 'PT Serif', sans-serif;
               position: relative;
             }
 
@@ -38,10 +38,9 @@
             }
 
             #content {
-              border-top: 0.08em solid #CCCCCC;
               padding: 4.9em;
               margin-top: 0.1em;
-              padding-top: 1em;
+              padding-top: 1.6em;
               padding-bottom: 1em;
               margin-bottom: 1em;
 							background-image: -webkit-gradient(
@@ -56,8 +55,8 @@
 									rgb(240,240,240) 3%,
 									rgb(255,255,255) 52%
 							);
-
-
+              position: relative;
+              text-shadow: -1px -1px 2px #FAFAFA;
             }
 
             #list_cont {
@@ -81,12 +80,22 @@
               padding-bottom: 1em;
               position: relative;
               background-color: #000000;
-              -webkit-mask-image: -webkit-radial-gradient(
-									circle,
-							    rgba(0,0,0,1.0),
-                  rgba(248,248,248,0.95)
+							
+              
+              background-image: -webkit-gradient(
+                  linear,
+                  left bottom,
+                  left top,
+                  color-stop(0.09, rgb(32,32,32)),
+                  color-stop(0.74, rgb(0,0,0))
               );
-
+              background-image: -moz-linear-gradient(
+                  center bottom,
+                  rgb(32,32,32) 9%,
+                  rgb(0,0,0) 74%
+              ); 
+                          
+                  
             }
 
 
@@ -106,7 +115,7 @@
 
             #nav li {
               display: inline;
-              padding-right: 0.5em;
+              padding-right: 1em;
             }
 
             #nav a {
@@ -114,6 +123,7 @@
             }
 
             #nav {
+              font-family: 'Lato', sans-serif;
               display: inline;
               position: absolute;
               top: 1.3em;
@@ -200,7 +210,6 @@
 
             #header a, #header a:visited, #header a:hover,
             #header a:active {
-              font-family: 'Lato', sans-serif;
               color: #AAAAAA;
             }
 
@@ -239,10 +248,11 @@
             }
 
             #derek {
-              float: left;
+              position: absolute;
+              left: 3.2em;
+              top: 0;
               padding: 0;
-              margin-right: 0.75em;
-              margin-bottom: 0em;
+              margin: 2em;
               -webkit-border-radius: .25em;
               -moz-border-radius: .25em;
               border-radius: .25em;
@@ -254,6 +264,7 @@
 
             .about {
               margin-bottom: 1em;
+              margin-left: 13.765em;
             }
 
             #byline {
