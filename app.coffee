@@ -51,7 +51,7 @@ app.get '/post/:token', (request, response) ->
         current_nav: navs[0]
         title_bar: "#{config.siteName} - Blog - #{post.title}"
         useDisqus: true
-        disqusPermalink: "#{config.publicPath}post/#{request.params.token}"
+        disqusPermalink: "#{config.publicPath}/post/#{request.params.token}"
         disqusIdentifier: request.params.token
 
 app.get '/page/:page', (request, response) ->
