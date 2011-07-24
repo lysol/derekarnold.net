@@ -12,12 +12,11 @@
         </script>
         <script type="text/javascript" src="http://lloogg.com/l.js?c=21210200db197786">
         </script>
-        <link rel="icon" href="/public/favicon.png" />
-				<!--<link href='http://fonts.googleapis.com/css?family=Cabin&v1' rel='stylesheet' type='text/css'>-->
+        <link rel="icon" href="/favicon.png" />
         <link href="http://fonts.googleapis.com/css?family=Lato|PT Serif|Anonymous Pro&v2" rel="stylesheet" type="text/css">
-				<style type="text/css">
+        <style type="text/css">
 
-						.resume-section p {
+            .resume-section p {
               margin-bottom: 1.2em;
             }
 
@@ -28,7 +27,7 @@
               font-size: 13pt;
               color: #000025;
               -webkit-font-smoothing: antialiased;
-							-moz-font-smoothing: antialiased;
+              -moz-font-smoothing: antialiased;
               font-family: 'PT Serif', sans-serif;
               position: relative;
             }
@@ -43,18 +42,18 @@
               padding-top: 1.6em;
               padding-bottom: 1em;
               margin-bottom: 1em;
-							background-image: -webkit-gradient(
-									linear,
-									left top,
-									left 250,
-									color-stop(0.03, rgb(240,240,240)),
-									color-stop(0.52, rgb(255,255,255))
-							);
-							background-image: -moz-linear-gradient(
-									center top,
-									rgb(240,240,240) 3%,
-									rgb(255,255,255) 52%
-							);
+              background-image: -webkit-gradient(
+                  linear,
+                  left top,
+                  left 250,
+                  color-stop(0.03, rgb(240,240,240)),
+                  color-stop(0.52, rgb(255,255,255))
+              );
+              background-image: -moz-linear-gradient(
+                  center top,
+                  rgb(240,240,240) 3%,
+                  rgb(255,255,255) 52%
+              );
               position: relative;
               text-shadow: -1px -1px 2px #FAFAFA;
             }
@@ -80,7 +79,7 @@
               padding-bottom: 1em;
               position: relative;
               background-color: #000000;
-							
+              
               
               background-image: -webkit-gradient(
                   linear,
@@ -103,7 +102,7 @@
             #header, #nav {
               display: block;
               padding-left: 5em;
-							margin: 0;
+              margin: 0;
             }
             #nav ul {
               display: inline;
@@ -130,10 +129,10 @@
               right: 2em;
             }
 
-						h1 {
-						  font-size: 1.8em;
+            h1 {
+              font-size: 1.8em;
               font-family: 'Lato', sans-serif;
-					    text-style: normal;
+              text-style: normal;
             }
 
             h2 {
@@ -171,8 +170,8 @@
               text-decoration: none;
               color: #000000;
               -webkit-mask-image: -webkit-radial-gradient(
-									circle,
-							    rgba(0,0,0,1.0),
+                  circle,
+                  rgba(0,0,0,1.0),
                   rgba(248,248,248,0.95)
               );
             }
@@ -201,9 +200,9 @@
               display: inline;
               color: #FFFFFF;
               -webkit-mask-image: -webkit-radial-gradient(
-									circle,
+                  circle,
                   rgba(248,248,248,1.0),
-							    rgba(0,0,0,0.93)
+                  rgba(0,0,0,0.93)
               );
               font-size: 2em;
             }
@@ -231,8 +230,8 @@
               text-decoration: none;
               color: #000000;
               -webkit-mask-image: -webkit-radial-gradient(
-									circle,
-							    rgba(0,0,0,1.0),
+                  circle,
+                  rgba(0,0,0,1.0),
                   rgba(248,248,248,0.85)
               );
             }

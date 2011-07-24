@@ -187,7 +187,7 @@ exports.generate_index = (callback) ->
         console.log "Error while building articles."
         throw err
       artsort = (a, b) ->
-        return a < b
+        return a.post_date > b.post_date
       artobjs = artobjs.sort artsort
       artobjs.reverse()
       indexjson = JSON.stringify artobjs
