@@ -1,8 +1,10 @@
+<!--
 {
     "title": "dqprintf",
     "post_date": "2011-07-26 10:47 AM",
     "tags": ["postgres"]
 }
+-->
 
 Part of my job involves performing data transformations using tables loaded via
 CSVs, which themselves were created from tab-delimited reports. Nasty.

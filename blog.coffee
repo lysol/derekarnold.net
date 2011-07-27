@@ -128,6 +128,15 @@ is_article = (path, callback) ->
   fs.stat path, (stats) ->
     callback stats.isFile() and md_pattern.test path
 
+get_comment = (text) ->
+  if text[0..3] != '<!--'
+    throw "First line in post must be an HTML comment."
+  text = text[4...text.length]
+  ouch = text.split '-->'
+  jsonBody = ouch[0]
+  postBody = ouch[1...ouch.length].join '-->'
+  [jsonBody, postBody]
+
 exports.build_cache = (callback) ->
   iter = (item, cb) ->
     np = "#{settings['cache']}/#{item}"
@@ -177,11 +186,8 @@ exports.generate_index = (callback) ->
         if err?
           console.log "Error while reading article source."
           throw err
-        splot = data.split "\n\n"
-        body = (splot[1..splot.length]).join "\n\n"
-        headertext = splot[0]
-        headertext.replace "\n", ""
-        header = JSON.parse headertext
+        [jsonBody, body] = get_comment(data)
+        header = JSON.parse jsonBody
         artobjs.push new Article item, header.title, (Date.parse header.post_date), header.tags
         cb()
     async.forEach articles, iter2, (err) ->

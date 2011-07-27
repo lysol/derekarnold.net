@@ -1,8 +1,10 @@
+<!--
 {
     "title": "On DML Logging",
     "post_date": "2011-07-24 08:21 AM",
     "tags": ["postgres"]
 }
+-->
 
 If your shop is like ours, your devs working with PostgreSQL want to log
 UPDATE, INSERT and DELETE operations by users, as a tool to analyze bugs in
