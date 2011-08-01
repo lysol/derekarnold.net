@@ -11,6 +11,7 @@ class Article
     (new Date @post_date).toString format
 
   rssDate: ->  @niceDate 'ddd, dd MMM yyyy HH:mm:ss +0000'
+  modDate: =>  @niceDate 'yyyy-MM-dd'
 
   token: () ->
     v = @filename.split '.'
@@ -78,6 +79,17 @@ load_index = (callback, tag) ->
       if tag?
         posts = posts.filter hasTag
       callback posts
+
+all_tags = (callback) ->
+  pCb = (posts) ->
+    tags = []
+    for post in posts
+      for tag in post.tags
+        if tag not in tags
+          tags.push tag
+    callback tags
+  exports.get_posts pCb, -1
+
 
 exports.paginates = (callback, pagenum=1, tag) ->
   liCb = (posts) ->
@@ -169,7 +181,7 @@ exports.generate_index = (callback) ->
   try
     fs.unlinkSync settings['article index']
   catch err
-    
+
   articles = []
   artobjs = []
   iter = (item, cb) ->

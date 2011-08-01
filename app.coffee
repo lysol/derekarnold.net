@@ -146,13 +146,29 @@ app.get '/rss', (request, response) ->
         creator: config.author
   blog.get_posts pCb, 1
 
+app.get '/sitemap.xml', (request, response) ->
+  pCb = (posts) ->
+    tags = []
+    for post in posts
+      for tag in post.tags
+        if tag not in tags
+          tags.push tag
+    response.contentType 'application/xml'
+    response.render 'sitemap',
+      "posts": posts
+      layout: null
+      publicPath: config.publicPath
+      curDate: new Date(Date.now()).toString 'yyyy-MM-dd'
+      "tags": tags
+  blog.get_posts pCb, -1
+
 # Read config and listen
 start = (err, data) ->
   if err?
     console.log "Error reading config.json."
     throw err
   config = JSON.parse(data.replace "\n", "")
-  config.lastFeedUpdate = Date(Date.now()).toString 'ddd, dd MMM yyyy HH:mm:ss +0000'
+  config.lastFeedUpdate = new Date(Date.now()).toString 'ddd, dd MMM yyyy HH:mm:ss +0000'
   if not config.serverPort?
     throw "No server port defined."
   app.listen config.serverPort
