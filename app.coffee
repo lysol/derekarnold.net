@@ -57,6 +57,7 @@ app.get '/post/:token', (request, response) ->
         disqusPermalink: "#{config.publicPath}/post/#{request.params.token}"
         disqusIdentifier: request.params.token
         siteDescription: config.siteDescription
+        publicPath: config.publicPath
 
 app.get '/page/:page', (request, response) ->
   pageNum = parseInt request.params.page
@@ -73,6 +74,7 @@ app.get '/page/:page', (request, response) ->
           basePath: "/"
           title_bar: "#{config.siteName} - Blog - Page #{pageNum}"
           siteDescription: config.siteDescription
+          publicPath: config.publicPath
       blog.paginates resCb2, pageNum
   blog.get_posts resCb, pageNum
 
@@ -90,7 +92,7 @@ app.get '/', (request, response) ->
           basePath: "/"
           title_bar: "#{config.siteName} - Blog"
           siteDescription: config.siteDescription
-
+          publicPath: config.publicPath
 
 app.get '/tags/:tag/:page', (request, response) ->
   tag = request.params.tag
@@ -109,6 +111,7 @@ app.get '/tags/:tag/:page', (request, response) ->
           basePath: "/tags/#{tag}/"
           title_bar: "#{config.siteName} - Blog - Tagged: #{tag} - Page #{page}"
           siteDescription: config.siteDescription
+          publicPath: config.publicPath
       blog.paginates pagCb, tag
   blog.get_posts pCb, page, tag
 
@@ -129,6 +132,7 @@ app.get '/tags/:tag', (request, response) ->
           title_bar: "#{config.siteName} - Blog - Tagged: #{tag}"
           basePath: "/tags/#{tag}/"
           siteDescription: config.siteDescription
+          publicPath: config.publicPath
       blog.paginates pagCb, tag
   blog.get_posts pCb, 1, tag
 
