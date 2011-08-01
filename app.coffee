@@ -166,6 +166,9 @@ app.get '/sitemap.xml', (request, response) ->
       "tags": tags
   blog.get_posts pCb, -1
 
+app.get '/resume.doc', (request, response) ->
+  response.redirect '/resume', '301'
+
 # Read config and listen
 start = (err, data) ->
   if err?
