@@ -1,4 +1,7 @@
 <div class="blog_post">
+<div class="plusone-container">
+<div class="g-plusone" data-size="standard" data-href="<%= @publicPath %>/post/<%= @post.token() %>"></div>
+</div>
 <h1><a href="/post/<%= @post.token() %>"><%= @post.title %></a></h1>
 <p>
   <%- @post.body %>

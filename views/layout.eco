@@ -12,6 +12,13 @@
         </script>
         <script type="text/javascript" src="http://lloogg.com/l.js?c=21210200db197786">
         </script>
+        <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/plusone.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+        </script> 
         <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://derekarnold.net/rss/" />
         <link rel="icon" href="/favicon.png" />
         <link href="http://fonts.googleapis.com/css?family=Lato|PT Serif|Anonymous Pro&v2" rel="stylesheet" type="text/css">
@@ -160,6 +167,7 @@
 
             .blog_post {
               margin-bottom: 3.5em;
+              position: relative;
             }
 
             .blog_post p {
@@ -272,6 +280,12 @@
 
             #byline {
               clear: both;
+            }
+
+            .plusone-container {
+              position: absolute;
+              top: 0;
+              right: -74px;
             }
 
         </style>
