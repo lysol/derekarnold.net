@@ -167,7 +167,7 @@ app.get '/sitemap.xml', (request, response) ->
   blog.get_posts pCb, -1
 
 app.get '/resume.doc', (request, response) ->
-  response.redirect '#{config.publicPath}/resume', '301'
+  response.redirect "#{config.publicPath}/resume", '301'
 
 # Read config and listen
 start = (err, data) ->
