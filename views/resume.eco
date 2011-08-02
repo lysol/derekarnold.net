@@ -1,3 +1,24 @@
+<% if @searchTerms? and @searchTerms.length > 0 and ('available upon request' in @searchTerms or 'resume' in @searchTerms): %>
+    <div id="google-notice">
+    <h2>Welcome, Google user.</h2>
+
+    <p>
+    The search that led you to my resume included the following terms:
+    <% for term in @searchTerms: %>
+        <div class="search-term"><%- term %></div>
+    <% end %>
+    </p>
+
+    <p>
+    Looks like you're searching for resumes.<br />
+    After you're done looking at mine,
+    why not give me a call, or email me?<br />The below number is a Google Voice number, but my
+    cellphone number is <b>(641) 275-0453</b>.
+    </p>
+
+    </div>
+<% end %>
+
 <div class="resume-section">
 320 9th St NW<br />
 Mason City, IA 50401<br />
