@@ -4,6 +4,7 @@ eco = require 'eco'
 app = module.exports = express.createServer()
 fs = require 'fs'
 datejs = require 'datejs'
+refer = require './refer'
 
 # Setup Template Engine
 app.set 'views', __dirname + '/views'
@@ -39,11 +40,13 @@ app.get '/about', (request, response) ->
     siteDescription: config.siteDescription
 
 app.get '/resume', (request, response) ->
+  terms = refer.searchTerms(request, config.debug)
   response.render 'resume',
     "navs": navs
     current_nav: navs[1]
     title_bar: "#{config.siteName} - Résumé"
     siteDescription: config.siteDescription
+    searchTerms: terms
 
 app.get '/post/:token', (request, response) ->
   blog.get_post request.params.token, (post) ->
