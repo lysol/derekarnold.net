@@ -53,7 +53,8 @@ exports.searchTerms = searchTerms = (request, debug) ->
   if not ref?
     return null
   purl = url.parse ref, true
-  if ('google.com' in purl.hostname and purl.pathname == '/search') or debug
+  hm = purl.host.match 'google.com'
+  if (hm? and (purl.pathname == '/search' or purl.pathname == '/url')) or debug
     stxt = purl.query.q
     terms = parseTerms stxt
     return terms
