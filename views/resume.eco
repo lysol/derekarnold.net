@@ -4,16 +4,20 @@
 
     <p>
     The search that led you to my resume included the following terms:
-    <% for term in @searchTerms: %>
+    <div id="search-terms">
+		<% for term in @searchTerms: %>
+		  <% if term.length > 0 and term[0] != '-': %>
         <div class="search-term"><%- term %></div>
+		  <% end %>
     <% end %>
+		</div>
     </p>
 
     <p>
     Looks like you're searching for resumes.<br />
     After you're done looking at mine,
     why not give me a call, or email me?<br />The below number is a Google Voice number, but my
-    cellphone number is <b>(641) 275-0453</b>.
+    cellphone number is <b style="white-space: nowrap">(641) 275-0453</b>.
     </p>
 
     </div>
