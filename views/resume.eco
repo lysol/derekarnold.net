@@ -20,13 +20,18 @@
     cellphone number is <b style="white-space: nowrap">(641) 275-0453</b>.
     </p>
 
+    <p>
+    I'm not really looking for a new job right now, but serious offers will
+    be considered.
+    </p>
+
     </div>
 <% end %>
 
 <div class="resume-section">
-320 9th St NW<br />
-Mason City, IA 50401<br />
-<a href="mailto:derek@derekarnold.net">derek@derekarnold.net</a> &middot; (612) 605-8901
+507 E Locust St #205<br />
+Des Moines, IA 50309<br />
+derek<span style="display: none;">remove this</span>@derekarnold.net &middot; (612) 605-8901
 </div>
 
 <div class="resume-section">
@@ -42,10 +47,18 @@ PostgreSQL, MySQL, SQLite, Redis
 
 <div class="resume-section">
 <h2>Work History</h2>
+
+
+<p>
+<b>Webspec Design, Urbandale, Iowa</b><br />
+Web Developer<br />
+October 2011 to Present
+</p>
+
 <p>
 <b>Dealerbuilt, Mason City, Iowa</b><br />
 Developer/Junior Database Administration/Systems Administration<br />
-September 2008 to Present
+September 2008 to September 2011
 
 <ul>
   <li>Maintained Ubuntu Linux and FreeBSD systems
