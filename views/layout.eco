@@ -176,6 +176,8 @@
 
             .blog_post h1 {
               margin-bottom: 1em;
+              line-height: 1;
+              padding-right: 2em;
             }
 
             .blog_post h1 a {
