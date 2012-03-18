@@ -36,8 +36,12 @@ derek<span style="display: none;">remove this</span>@derekarnold.net &middot; (6
 
 <div class="resume-section">
 <h2>Languages and Markup</h2>
-Python, PHP, Javascript, HTML, CSS, Perl, Bash, Coffeescript<br />
-Dabbled in: C, C#, Ruby, Haskell
+PHP, Python Javascript, HTML, CSS, Perl, Bash, Coffeescript
+</div>
+
+<div class="resume-section">
+<h2>Frameworks and Software</h2>
+Wordpress, Yii, Flask
 </div>
 
 <div class="resume-section">
@@ -53,32 +57,29 @@ PostgreSQL, MySQL, SQLite, Redis
 <b>Webspec Design, Urbandale, Iowa</b><br />
 Web Developer<br />
 October 2011 to Present
+
+<ul>
+  <li>Wrote custom PHP/MySQL web applications utilizing various third party APIs with front end logic developed using jQuery</li>
+  <li>Implemented custom designs as Wordpress themes</li>
+  <li>Implemented custom apps as Wordpress plugins</li>
+  <li>Developed revision control practices</li>
+</ul>
 </p>
 
 <p>
 <b>Dealerbuilt, Mason City, Iowa</b><br />
 Developer/Junior Database Administration/Systems Administration<br />
-September 2008 to September 2011
+August 2006 to September 2011
 
 <ul>
-  <li>Maintained Ubuntu Linux and FreeBSD systems
-  <li>Configured, tuned, and maintained PostgreSQL servers
-  <li>Created PL/pgSQL functions to convert third-party data to native schemas
-  <li>Wrote various Python scripts to streamine data conversion and systems administration</li>
+  <li>Maintained Ubuntu Linux and FreeBSD systems</li>
+  <li>Configured, tuned, and maintained PostgreSQL servers</li>
+  <li>Created PL/pgSQL functions to convert third-party data to native schemas</li>
+  <li>Wrote various Python scripts to streamline ETL and systems administration</li>
   <li>Helped to develop company procedures and policies regarding database interaction</li>
-  <li>Created one-off customer-facing small web applications using web.py and PostgreSQL</li>
+  <li>Created one-off customer-facing small web applications using web.py + PostgreSQL</li>
 </ul>
 </p>
-
-<p>
-<b>Dealerbuilt, Mason City, Iowa</b><br />
-Systems Administration/Technical Support<br />
-August 2006 to September 2008<br />
-
-<ul>
-  <li>Maintained Windows workstations and servers, Ubuntu Linux and FreeBSD systems</li>
-  <li>Assisted customers and provided technical support in use of Microsoft Terminal Services and company software</li>
-</ul>
 
 <p>
 <b>Kroll Ontrack, Eden Prairie, Minnesota</b><br />
