@@ -29,9 +29,9 @@
 <% end %>
 
 <div class="resume-section">
-507 E Locust St #205<br />
+110 10th St #608<br />
 Des Moines, IA 50309<br />
-derek<span style="display: none;">remove this</span>@derekarnold.net &middot; (612) 605-8901
+derek<span style="display: none;">remove this</span>@derekarnold.net &middot; (515) 657-7853
 </div>
 
 <div class="resume-section">
@@ -52,11 +52,16 @@ PostgreSQL, MySQL, SQLite, Redis
 <div class="resume-section">
 <h2>Work History</h2>
 
+<p>
+<b>The Integer Group, Des Moines, Iowa</b><br />
+Web Developer<br />
+June 2012 to Present
+</p>
 
 <p>
 <b>Webspec Design, Urbandale, Iowa</b><br />
 Web Developer<br />
-October 2011 to Present
+October 2011 to June 2012
 
 <ul>
   <li>Wrote custom PHP/MySQL web applications utilizing various third party APIs with front end logic developed using jQuery</li>
