@@ -21,7 +21,7 @@
         </script> 
         <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://derekarnold.net/rss/" />
         <link rel="icon" href="/favicon.png" />
-        <link href="http://fonts.googleapis.com/css?family=Lato|PT Serif|Anonymous Pro&v2" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Patua One|Lusitana|Anonymous Pro&v2" rel="stylesheet" type="text/css">
         <style type="text/css">
 
             .resume-section p {
@@ -31,16 +31,13 @@
             body {
               padding: 0;
               margin: 0;
-              line-height: 1.4em;
-              font-size: 18px;
-              line-height: 21px;
+              font-size: 15px;
+              line-height: 25px;
               color: #000025;
               -webkit-font-smoothing: antialiased;
               -moz-font-smoothing: antialiased;
-              font-family: 'PT Serif', Georgia, Times, Times New Roman, serif;
-              font-variant: normal;
-              font-weight: normal;
-              font-style: normal;
+              font-family: 'Lusitana', Georgia, Times, Times New Roman, serif;
+              font-weight: 400;
               position: relative;
             }
 
@@ -54,19 +51,10 @@
               padding-top: 1.6em;
               padding-bottom: 1em;
               margin-bottom: 1em;
-              background-image: -webkit-gradient(
-                  linear,
-                  left top,
-                  left 250,
-                  color-stop(0.03, rgb(240,240,240)),
-                  color-stop(0.52, rgb(255,255,255))
-              );
-              background-image: -moz-linear-gradient(
-                  center top,
-                  rgb(240,240,240) 3%,
-                  rgb(255,255,255) 52%
-              );
               position: relative;
+              width: 42em;
+              margin-left: auto;
+              margin-right: auto;
             }
 
             #list_cont {
@@ -86,41 +74,23 @@
               padding-bottom: 0;
             }
             #header { 
-              padding-top: 1em;
-              padding-bottom: 1em;
+              padding-top: 2em;
+              padding-bottom: 0.75em;
               position: relative;
-              background-color: #000000;
-              
-              
-              background-image: -webkit-gradient(
-                  linear,
-                  left bottom,
-                  left top,
-                  color-stop(0.09, rgb(32,32,32)),
-                  color-stop(0.74, rgb(0,0,0))
-              );
-              background-image: -moz-linear-gradient(
-                  center bottom,
-                  rgb(32,32,32) 9%,
-                  rgb(0,0,0) 74%
-              ); 
-                          
-                  
+              margin-left: auto;
+              margin-right: auto;
             }
 
 
 
             #header, #nav {
               display: block;
-              padding-left: 5em;
-              margin: 0;
             }
             #nav ul {
               display: inline;
               list-style: none;
               padding-left: 0;
               font-weight: bold;
-              color: #FFFFFF;
             }
 
             #nav li {
@@ -133,22 +103,26 @@
             }
 
             #nav {
-              font-family: 'Lato', sans-serif;
+              font-family: 'Patua One', sans-serif;
               display: inline;
               position: absolute;
-              top: 1.3em;
-              right: 2em;
+              top: 2.6em;
+              right: 0;
             }
 
             h1 {
-              font-size: 1.8em;
-              font-family: 'Lato', sans-serif;
+              font-size: 1.4em;
+              font-family: 'Patua One', sans-serif;
               text-style: normal;
+            }
+
+            #header h1 {
+              font-size:; 1.8em;
             }
 
             h2 {
               font-size: 1.4em;
-              font-family: 'Lato', sans-serif;
+              font-family: 'Patua One', sans-serif;
               text-style: normal;
             }
             
@@ -176,7 +150,6 @@
 
             .blog_post h1 {
               margin-bottom: 1em;
-              line-height: 1;
               padding-right: 2em;
             }
 
@@ -191,13 +164,12 @@
             }
 
             .blog_post pre {
-              margin-left: 2em;
               font-family: 'Anonymous Pro', monospace;
               font-size: 10pt;
-              background-color: rgba(0,0,0,.1);
+              background-color: rgba(92,64,0,.08);
               overflow-x: auto;
               overflow-y: hidden;
-              padding: 1.2em;
+              padding: 2em;
               width: auto;
               -webkit-border-radius: .25em;
               -moz-border-radius: .25em;
@@ -205,19 +177,13 @@
               }
 
             .blog_footer {
-              font-size: 90%;
+              font-size: 10pt;
               color: #747474;
               padding-left: 0.15em;
             }
 
             #header h1 {
               display: inline;
-              color: #FFFFFF;
-              -webkit-mask-image: -webkit-radial-gradient(
-                  circle,
-                  rgba(248,248,248,1.0),
-                  rgba(0,0,0,0.93)
-              );
               font-size: 2em;
             }
 
@@ -235,7 +201,7 @@
             #pagination {
               position: relative;
               margin-top: 0;
-              font-family: 'Lato', sans-serif;
+              font-family: 'Patua One', sans-serif;
               padding-bottom: 1em;
               font-weight: bold;
             }
@@ -308,7 +274,7 @@
             .search-term {
               display: inline;
               color: #FFFFFF;
-              font-family: 'Lato', sans-serif;
+              font-family: 'Patua One', sans-serif;
               background-color: #3333AA;
               padding: 0.75em;
               white-space: nowrap;
@@ -340,24 +306,24 @@
     </head>
 
     <body>
-      <div id="header"><h1><a href="/">Derek Arnold</a></h1>
-          <div id="nav">
-            <ul>
-          <% for nav in @navs: %>
-            <% if @current_nav.token != nav.token: %>
-              <li><a href="/<%= nav.token %>"><%= nav.name %></a></li>
-            <% else: %>
-              <% if @current_nav.name == 'Blog' and @page > 1: %>
-                  <li><b><%= nav.name %> &middot; Page <%- @page %></b></li>
-              <% else: %>
-                  <li><b><%= nav.name %></b></li>
-              <% end %>
-            <% end %>
-          <% end %>
-            </ul>
-            </div>
-      </div> 
       <div id="content">
+          <div id="header"><h1><a href="/">Derek Arnold</a></h1>
+              <div id="nav">
+                <ul>
+              <% for nav in @navs: %>
+                <% if @current_nav.token != nav.token: %>
+                  <li><a href="/<%= nav.token %>"><%= nav.name %></a></li>
+                <% else: %>
+                  <% if @current_nav.name == 'Blog' and @page > 1: %>
+                      <li><b><%= nav.name %> &middot; Page <%- @page %></b></li>
+                  <% else: %>
+                      <li><b><%= nav.name %></b></li>
+                  <% end %>
+                <% end %>
+              <% end %>
+                </ul>
+                </div>
+          </div>         
       <%- @body %>
       </div>
           <script type="text/javascript">
