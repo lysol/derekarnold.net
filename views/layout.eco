@@ -4,7 +4,7 @@
       <title><% if @title_bar: %><%- @title_bar %><% end %></title>
       <meta charset="utf-8" />
         <meta name="description" content="Derek Arnold, a person from Iowa." />
-        <meta name="keywords" content="derek arnold,derek,arnold,douglbutt,lysol,iowa,mason city,north iowa,pymblr,congress" />
+        <meta name="keywords" content="derek arnold,derek,arnold,lysol,iowa,des moines" />
         <meta name="google-site-verification" content="r_BkAkM4qxgWUrrvcS2981DR6W14Eeja59efnHNBRJ8" />
         <meta name=”ROBOTS” content=”NOODP”>
         <script type="text/javascript">
@@ -12,13 +12,6 @@
         </script>
         <script type="text/javascript" src="http://lloogg.com/l.js?c=21210200db197786">
         </script>
-        <script type="text/javascript">
-        (function() {
-          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-          po.src = 'https://apis.google.com/js/plusone.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-        })();
-        </script> 
         <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://derekarnold.net/rss/" />
         <link rel="icon" href="/favicon.png" />
         <link href="http://fonts.googleapis.com/css?family=Patua One|Lusitana|Anonymous Pro&v2" rel="stylesheet" type="text/css">
@@ -39,6 +32,7 @@
               font-family: 'Lusitana', Georgia, Times, Times New Roman, serif;
               font-weight: 400;
               position: relative;
+              background-image: url('/images/greyfloral.png');
             }
 
             a,a:hover,a:active,a:visited {
@@ -68,7 +62,7 @@
             }
 
             #main {
-                margin: 0;
+              margin: 0;
               padding: 5em;
               padding-top: 2em;
               padding-bottom: 0;
@@ -79,6 +73,8 @@
               position: relative;
               margin-left: auto;
               margin-right: auto;
+              margin-bottom: 3em;
+              color: #222222;
             }
 
 
