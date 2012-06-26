@@ -24,7 +24,7 @@
             body {
               padding: 0;
               margin: 0;
-              font-size: 15px;
+              font-size: 20px;
               line-height: 25px;
               color: #000025;
               -webkit-font-smoothing: antialiased;
