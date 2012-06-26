@@ -224,16 +224,16 @@
 
             #derek {
               position: absolute;
-              left: 3.2em;
-              top: 5.1em;
+              left: 2.95em;
+              top: 7.2em;
               padding: 0;
               margin: 2em;
               -webkit-border-radius: .25em;
               -moz-border-radius: .25em;
               border-radius: .25em;
               background-image: url('/images/derek.jpg');
-              width: 11.265em;
-              height: 11.265em;
+              width: 10em;
+              height: 10em;
               bg-size: 100% 100%;
             }
 
