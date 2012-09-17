@@ -62,7 +62,7 @@ exports.attach_bodies = (posts, callback) ->
 settings =
   "article path": __dirname + '/articles'
   "article index": __dirname + '/article_index.json'
-  "posts per page": 10
+  "posts per page": 5
   "cache": __dirname + '/cache'
 exports.settings = settings
 
@@ -107,7 +107,7 @@ exports.get_posts = (callback, pagenum=1, tag) ->
   pp = settings["posts per page"]
   liCb = (index) ->
     if pagenum != -1
-      index = index[pp*(pagenum-1)..pp*(pagenum)-1]
+      index = index[pp*(pagenum-1)...pp*(pagenum)-1]
     articles = []
     for art in index
       if art.filename? and art.title? and art.post_date?

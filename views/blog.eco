@@ -24,12 +24,12 @@
 <div id="pagination">
     <% if @show_prev: %>
         <div id="prev">
-            <a href="<%= basePath %>page/<%= @page - 1 %>">&laquo; Previous Page</a>
+            <a href="<%= @basePath %>page/<%= @page - 1 %>">&laquo; Previous Page</a>
         </div>
     <% end %>
     <% if @show_next: %>
         <div id="next">
-            <a href="<%= basePath %>page/<%= @page + 1 %>">Next Page &raquo;</a>
+            <a href="<%= @basePath %>page/<%= @page + 1 %>">Next Page &raquo;</a>
         </div>
     <% end %>
 </div>
